@@ -1,3 +1,5 @@
+Berikut adalah perbaikan dari README yang terpotong:
+
 # Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First
 
 ![PWA Offline-First](https://img.shields.io/badge/PWA-Offline--First-purple)
@@ -27,23 +29,61 @@ Hanya memerlukan browser modern yang mendukung standar ES6+.
 
 1. Clone repositori ini:
    ```bash
-   git clone [https://github.com/donatjs/presensi.git](https://github.com/donatjs/presensi.git)
+   git clone https://github.com/donatjs/presensi.git
    cd presensi
-Jalankan menggunakan server file statis apa pun (misal: VS Code Live Server, Python http.server, atau Nginx).Buka index.html di browser Anda. Tidak memerlukan langkah kompilasi atau build.Catatan: Berkas script.js dan svg.js dimuat langsung dari DonatJS Core CDN (https://donatjs.github.io/core/). Diperlukan koneksi internet pada pemuatan pertama, atau unduh berkas tersebut untuk kebutuhan full-self-hosting.Usage & ConfigurationKomponen Arsitektur UtamaBagianCakupan TeknisDeskripsi1: PWA ShellService Worker, Cache, ManifestMenangani performa load instan, instalasi aplikasi ke homescreen, dan caching aset inti.2: Storage LokalIndexedDB, Log PresensiMengelola penyimpanan log kehadiran secara offline lengkap dengan koordinat dan timestamp aman.3: SinkronisasiSync Queue, Network DetectorMengelola antrean data presensi yang tertunda dan melakukan push otomatis saat status beralih ke online.4: Mobile UXTouch Target, Layout ResponsifDesain antarmuka presensi yang ramah satu tangan, indikator status online/offline, dan ekspor data.Contoh Struktur Data Presensi (pages.home)JavaScriptpages.home = [
+   ```
+
+2. Jalankan menggunakan server file statis apa pun (misal: VS Code Live Server, Python http.server, atau Nginx).
+
+3. Buka `index.html` di browser Anda. Tidak memerlukan langkah kompilasi atau build.
+
+> **Catatan:** Berkas `script.js` dan `svg.js` dimuat langsung dari DonatJS Core CDN (`https://donatjs.github.io/core/`). Diperlukan koneksi internet pada pemuatan pertama, atau unduh berkas tersebut untuk kebutuhan full-self-hosting.
+
+---
+
+## Usage & Configuration
+
+### Komponen Arsitektur Utama
+
+| Bagian | Cakupan Teknis | Deskripsi |
+|--------|----------------|-----------|
+| 1: PWA Shell | Service Worker, Cache, Manifest | Menangani performa load instan, instalasi aplikasi ke homescreen, dan caching aset inti. |
+| 2: Storage Lokal | IndexedDB, Log Presensi | Mengelola penyimpanan log kehadiran secara offline lengkap dengan koordinat dan timestamp aman. |
+| 3: Sinkronisasi | Sync Queue, Network Detector | Mengelola antrean data presensi yang tertunda dan melakukan push otomatis saat status beralih ke online. |
+| 4: Mobile UX | Touch Target, Layout Responsif | Desain antarmuka presensi yang ramah satu tangan, indikator status online/offline, dan ekspor data. |
+
+### Contoh Struktur Data Presensi (`pages.home`)
+
+```javascript
+pages.home = [
     {
         section: 'hero',
         title: 'Sistem Presensi Mobile Offline-First',
         description: 'Aplikasi Absensi Mandiri berbasis PWA — Cepat, Ringan, dan Andal Tanpa Sinyal.'
     }
 ];
-How to CiteCuplikan kode@software{sismadi_presensi_mobile_2026,
+```
+
+---
+
+## How to Cite
+
+```bibtex
+@software{sismadi_presensi_mobile_2026,
   author       = {Sismadi, Wawan},
   title        = {{Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First}},
   year         = {2026},
   publisher    = {Figshare},
   doi          = {10.5281/figshare.XXXXXXXX},
-  url          = {[https://github.com/donatjs/presensi](https://github.com/donatjs/presensi)},
+  url          = {https://github.com/donatjs/presensi},
   note         = {Sistem presensi mobile mandiri dengan arsitektur Offline-First.
                   Mendukung Service Worker caching, IndexedDB log, dan Sync Queue.
                   Dibangun di atas micro-framework DonatJS tanpa dependensi pihak ketiga.}
 }
+```
+
+---
+
+## License
+
+Distributed under the MIT License. See `LICENSE` file for more information.
