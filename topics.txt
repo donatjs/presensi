@@ -1,0 +1,26 @@
+Topic tags untuk sismadi/ocw-kb
+Paste satu per satu di: GitHub repo → Settings → Topics
+
+─────────────────────────────────────────
+open-courseware
+ocw
+wireless-computing
+mobile-computing
+komputasi-bergerak
+progressive-web-app
+offline-first
+service-worker
+sync-queue
+indexeddb
+mobile-ux
+donatjs
+educational-technology
+open-education
+indonesia
+universitas-ipwija
+─────────────────────────────────────────
+
+Catatan:
+- GitHub maksimal 20 topic tags per repo
+- Gunakan huruf kecil dan tanda hubung (kebab-case)
+- Semua 16 tag di atas sudah dalam format yang diterima GitHub

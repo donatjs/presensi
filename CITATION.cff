@@ -1,0 +1,33 @@
+ff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First"
+abstract: >
+  Aplikasi presensi mandiri (absensi mobile) open-source berbasis Progressive Web App (PWA)
+  dengan arsitektur Offline-First. Sistem dirancang untuk menangani pencatatan kehadiran secara 
+  instan di area minim sinyal menggunakan enkapsulasi Service Worker, penyimpanan lokal IndexedDB,
+  serta mekanisme sinkronisasi latar belakang otomatis (Sync Queue). Dioptimalkan menggunakan
+  micro-framework DonatJS tanpa dependensi runtime eksternal.
+authors:
+  - family-names: Sismadi
+    given-names: Wawan
+    orcid: "https://orcid.org/0009-0007-2685-5663"
+    affiliation: "Universitas IPWIJA / PT Sismadi Langit Solusi"
+version: "1.0.0"
+date-released: "2026-05-26"
+doi: "10.6084/m9.figshare.XXXXXXXX"
+license: MIT
+repository-code: "https://github.com/donatjs/presensi"
+url: "https://github.com/donatjs/presensi"
+keywords:
+  - presensi mobile
+  - absensi pwa
+  - progressive web app
+  - offline-first
+  - service worker
+  - sync queue
+  - indexeddb
+  - mobile ux
+  - donatjs
+  - open source
+  - indonesia

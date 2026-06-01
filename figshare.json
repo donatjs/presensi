@@ -1,0 +1,66 @@
+{
+  "title": "Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First",
+  "description": "Sistem aplikasi presensi mandiri (absensi mobile) berbasis open-source yang menerapkan arsitektur Progressive Web App (PWA) Offline-First. Berjalan di atas DonatJS — sebuah zero-dependency, no-build-step, JSON-driven micro-framework yang merendah antarmuka halaman web dinamis langsung di peramban browser dari deklarasi objek JavaScript murni tanpa pustaka kompilasi luar.\n\nSistem presensi ini menangani siklus hidup aplikasi mobile di area blank spot internet melalui 4 modul komponen arsitektur utama: Pengelolaan App Shell & Service Worker Lifecycle, Caching Statis (Cache-First Strategy), Manajemen Storage Lokal menggunakan IndexedDB untuk pencatatan timestamp kehadiran dan koordinat presensi, serta implementasi Antrean Sinkronisasi (Sync Queue) otomatis berbasis pemrosesan latar belakang (background sync) saat koneksi terdeteksi kembali online. Antarmuka aplikasi menerapkan prinsip Mobile UX modern dengan Touch Target minimal 44px, struktur navigasi Thumb-Zone, visualisasi status jaringan (Online/Offline Indicator), dan Skeleton Screen.\n\nDilengkapi pula dengan subsistem pendukung terintegrasi berupa: modul kuis terproteksi sandi dengan encoding base64, serta modul Certificate Verifier untuk pencarian validasi ID kredensial (format SLS-YYYY-NNN). Silsilah framework: Ktupad (2019, PHP/MVC) → BayamJS (2023, JS/MVC) → DonatJS (2024–2026, JSON-driven CSR).\n\nMetrik performa Audit Lighthouse — Performance: 98, Accessibility: 92, Best Practices: 100, SEO: 90. Registrasi Hak Cipta HKI: EC00202414144. Permohonan Paten S00202503129 (DJKI Indonesia).",
+  "defined_type": "software",
+  "access": "open",
+  "license": 1,
+  "authors": [
+    {
+      "name": "Wawan Sismadi",
+      "first_name": "Wawan",
+      "last_name": "Sismadi",
+      "orcid_id": "0009-0007-2685-5663",
+      "institution": "Universitas IPWIJA / PT Sismadi Langit Solusi"
+    }
+  ],
+  "categories": [
+    "Computer Science",
+    "Software Engineering",
+    "Information Systems",
+    "Mobile Computing"
+  ],
+  "tags": [
+    "presensi mobile",
+    "absensi mobile",
+    "progressive web app",
+    "PWA",
+    "offline-first",
+    "service worker",
+    "sync queue",
+    "indexeddb",
+    "mobile ux",
+    "json-driven UI",
+    "zero dependency",
+    "no-build step",
+    "micro-framework",
+    "DonatJS",
+    "open source",
+    "Indonesia"
+  ],
+  "references": [
+    "Sismadi, W. (2024). Pengembangan Aplikasi Web Modern dengan DonatJS. P4I. ISBN 978-623-848-897-1.",
+    "Sismadi, W. (2024). Optimasi Penggunaan SVG dalam Web Development. P4I. ISBN 978-623-876-765-6.",
+    "Sismadi, W. (2024). Analisis Mendalam: Batasan Penggunaan AI dalam Pendidikan. P4I. ISBN 978-634-726-057-4."
+  ],
+  "related_materials": [
+    {
+      "title": "DonatJS LMS — Live Deployment",
+      "url": "https://donat.id",
+      "relation": "IsDocumentedBy",
+      "identifier_type": "URL"
+    },
+    {
+      "title": "Source Repository — GitHub",
+      "url": "https://github.com/donatjs/presensi",
+      "relation": "IsSupplementTo",
+      "identifier_type": "URL"
+    },
+    {
+      "title": "DonatJS Core CDN",
+      "url": "https://donatjs.github.io/core",
+      "relation": "Requires",
+      "identifier_type": "URL"
+    }
+  ],
+  "funding": []
+}

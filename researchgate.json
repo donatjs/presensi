@@ -1,0 +1,78 @@
+{
+  "title": "Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First",
+  "type": "software",
+  "publication_date": "2026-05-26",
+  "abstract": "Sistem presensi mandiri (absensi mobile) open-source yang menerapkan teknologi Progressive Web App (PWA) dengan arsitektur inti Offline-First. Aplikasi ini dikembangkan untuk memfasilitasi pencatatan kehadiran instan yang andal di lingkungan dengan infrastruktur jaringan buruk atau blank spot internet. Menggunakan integrasi Service Worker dengan Cache-First strategy untuk menjamin aplikasi termuat cepat (<1 detik), penyimpanan log kehadiran terenkapsulasi di IndexedDB, serta mekanisme antrean perubahan (Sync Queue) yang melakukan sinkronisasi otomatis ke pangkalan data server saat mendeteksi pemulihan koneksi internet. Antarmuka dioptimalkan bagi kenyamanan genggaman satu tangan (Thumb Zone & Touch Target 44px) dilengkapi transisi Skeleton Screen. Dibangun menggunakan DonatJS, sebuah zero-dependency, no-build-step, JSON-driven micro-framework. Hasil audit metrik Lighthouse menunjukkan skor Performa: 98, Aksesibilitas: 92, Best Practices: 100, dan SEO: 90. Terdaftar Hak Cipta HKI: EC00202414144 serta nomor pendaftaran Paten: S00202503129 di DJKI Indonesia.",
+  "authors": [
+    {
+      "first_name": "Wawan",
+      "last_name": "Sismadi",
+      "orcid": "0009-0007-2685-5663",
+      "institution": "Universitas IPWIJA",
+      "department": "Teknik Informatika",
+      "country": "Indonesia"
+    }
+  ],
+  "license": "MIT",
+  "language": "Indonesian",
+  "doi": "10.5281/figshare.XXXXXXXX",
+  "repository_url": "https://github.com/donatjs/presensi",
+  "project_url": "https://github.com/donatjs/presensi",
+  "version": "1.0.0",
+  "keywords": [
+    "presensi mobile",
+    "absensi mobile",
+    "progressive web app",
+    "PWA",
+    "offline-first",
+    "service worker",
+    "sync queue",
+    "IndexedDB",
+    "mobile UX",
+    "DonatJS",
+    "open source",
+    "Indonesia"
+  ],
+  "research_areas": [
+    "Computer Science",
+    "Mobile Computing",
+    "Software Engineering"
+  ],
+  "references": [
+    {
+      "citation": "Sismadi, W. (2024). Pengembangan Aplikasi Web Modern dengan DonatJS. P4I. ISBN 978-623-848-897-1.",
+      "type": "book"
+    },
+    {
+      "citation": "Sismadi, W. (2024). Optimasi Penggunaan SVG dalam Web Development. P4I. ISBN 978-623-876-765-6.",
+      "type": "book"
+    },
+    {
+      "citation": "Sismadi, W. (2024). Analisis Mendalam: Batasan Penggunaan AI dalam Pendidikan. P4I. ISBN 978-634-726-057-4.",
+      "type": "book"
+    },
+    {
+      "citation": "Sismadi, W. (2026). Arsitektur Piawai Mengajar (Manuscript, 9 chapters). Universitas Ahmad Dahlan.",
+      "type": "manuscript"
+    }
+  ],
+  "related_links": [
+    {
+      "label": "Live Deployment — DonatJS LMS",
+      "url": "https://donat.id"
+    },
+    {
+      "label": "Source Repository — GitHub",
+      "url": "https://github.com/donatjs/presensi"
+    },
+    {
+      "label": "DonatJS Core CDN",
+      "url": "https://donatjs.github.io/core"
+    },
+    {
+      "label": "HKI Copyright — EC00202414144 (DJKI Indonesia)",
+      "url": "https://pdki-indonesia.dgip.go.id"
+    }
+  ],
+  "notes": "ResearchGate does not have a native JSON deposit API. Use this file as a reference template when filling the manual upload form at https://www.researchgate.net/publication/new. Paste the abstract, keywords, and references directly. Upload the source ZIP and set the research type to 'Software'."
+}

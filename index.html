@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="OCW-PW — Open Courseware Pemrograman Web. 16 modul terstruktur membangun aplikasi CMS berbasis Vanilla JS, dari HTML5 hingga Single Page Application.">
+    <meta name="keywords" content="pemrograman web, javascript, html5, css3, localStorage, fetch API, SPA, CRUD, open courseware, DonatJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta http-equiv="Cache-Control" content="max-age=1209600">
+
+    <title>DonatJS — Presensi Wajah </title>
+    <link rel="canonical" href="https://donat.id/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://donat.id/">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:title" content="OCW-PW — Open Courseware Pemrograman Web">
+    <meta property="og:description" content="16 modul terstruktur membangun aplikasi CMS Vanilla JS dari nol — HTML5, CSS3, JavaScript ES6+, LocalStorage, Fetch API, hingga Single Page Application.">
+    <meta property="og:image" content="https://donat.id/assets/donatjs-banner.jpeg">
+    <meta property="og:site_name" content="OCW-PW">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OCW-PW — Open Courseware Pemrograman Web">
+    <meta name="twitter:description" content="16 modul terstruktur membangun aplikasi CMS Vanilla JS dari nol. Powered by DonatJS.">
+    <meta name="twitter:image" content="https://donat.id/assets/donatjs-banner.jpeg">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="svg.css">
+</head>
+<body>
+
+  <div id="printarea" class="cetak hide"></div>
+  <div id="depan" class="hide"></div>
+
+  <main id="main" class="main spotlight">
+       <div id="bawah" class="pDarkColor toast hide"></div>
+  </main>
+
+  <div class="row" id="header">.</div>
+
+  <div class="main" id="body">
+    <div class="row header">
+        <div class="kiri">
+            <span class="orange">DonatJS</span>
+            <span class="orange sub">Presensi Wajah</span>
+        </div>
+        <div class="kanan">
+            <i class="di-facebook"></i>
+            <i class="di-instagram"></i>
+            <i class="di-twitter"></i>
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="menu-bar" id="stickyMenu">
+            <div class="burger" id="burgerBtn">&#9776;</div>
+            <nav class="nav-links" id="navLinks">
+              <a href="/?home" onclick="return web.navigate('home')">Home</a>
+            </nav>
+        </div>
+    </div>
+
+
+<div id="content"></div>
+
+<div class="row footer"  >
+    <div class="kiri">Presensi Wajah &mdash; Powered by DonatJS</div>
+    <div class="kanan">&nbsp; &copy; 2026 Wawan Sismadi</div>
+</div>
+
+</div>
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<!-- <script type="text/javascript" src="learn-patch.js"></script> -->
+<!-- Setelah script.js dan kuis-patch.js -->
+
+<script src="benchmark.js"></script>
+<script src="presensi-patch.js"></script>
+
+
+<script type="text/javascript">
+// Inisialisasi SVG icons
+if (typeof svg !== 'undefined') svg.di();
+</script>
+
+<script type="text/javascript">
+
+function renderMenu() {
+    const navLinks = document.getElementById('navLinks');
+    if (!navLinks) return;
+
+    navLinks.innerHTML = Object.keys(pages).map(key => {
+        const label = key.charAt(0).toUpperCase() + key.slice(1);
+        return `<a href="/?${key}" onclick="return web.navigate('${key}')">${label}</a>`;
+    }).join('\n');
+}
+
+</script>
+
+<script src="pages/index.js"></script>  <!-- manifest -->
+<script src="dataset.js"></script>
+<script>
+    loadPageScripts(pageFiles, () => {
+        renderMenu();
+        // web.init(pages);
+    });
+</script>
+
+</body>
+</html>
