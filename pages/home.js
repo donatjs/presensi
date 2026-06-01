@@ -2,22 +2,22 @@ pages.home = [
     // 1. HERO
     {
         section: 'hero',
-        title: 'Sistem Presensi Mobile Offline-First',
-        tagline: 'Aplikasi Absensi Mandiri berbasis PWA — Cepat, Ringan, dan Andal Tanpa Sinyal.',
-        description: 'Platform presensi mobile berbasis open-source yang dirancang menggunakan arsitektur Offline-First. Mendukung pencatatan kehadiran instan menggunakan IndexedDB dan Sync Queue, memastikan data presensi aman tersimpan secara lokal dan otomatis tersinkronisasi saat kembali online.',
+        title: 'Sistem Presensi Wajah Offline-First',
+        tagline: 'Aplikasi Absensi Mandiri berbasis Deteksi Wajah — Cepat, Akurat, dan Andal Tanpa Sinyal.',
+        description: 'Platform presensi mobile berbasis facial recognition yang dirancang menggunakan arsitektur Offline-First. Mendukung pencatatan kehadiran instan dengan teknologi face landmark detection (MediaPipe) serta penyimpanan vektor biometrik di IndexedDB. Data presensi aman tersimpan secara lokal dan otomatis tersinkronisasi saat kembali online.',
         badges: [
             'PWA Offline-First',
-            'Presensi Mandiri',
-            'Sync Queue + IndexedDB',
+            'Face Recognition',
+            'MediaPipe Face Landmarker',
+            'Biometric Vector Storage',
             'Zero Dependency',
-            'License: MIT',
-            'DOI: 10.5281/figshare.XXXXXXXX'
+            'License: MIT'
         ],
         cta: {
-            text: 'Mulai Presensi',
-            link: 'learn'
+            text: 'Mulai Presensi Wajah',
+            link: 'presensi'
         },
-        imgClass: 'di-donat'
+        imgClass: 'di-scan'
     },
 
     // 2. KEY FEATURES
@@ -25,77 +25,71 @@ pages.home = [
         section: 'features',
         items: [
             {
-                icon: 'di-web',
-                title: 'Akses Instan & Reliable',
-                content: 'Menggunakan Service Worker dan strategi caching optimal untuk memastikan aplikasi presensi dapat dimuat dalam waktu kurang dari satu detik, bahkan di area dengan koneksi internet buruk.',
-                linkText: 'Lihat Sistem Caching &raquo;',
-                linkTarget: 'learn/modul01'
+                icon: 'di-eye',
+                title: 'Deteksi Wajah Real-time',
+                content: 'Menggunakan MediaPipe Face Landmarker untuk mendeteksi 478 titik koordinat wajah secara real-time melalui kamera perangkat. Akurasi tinggi bahkan dalam kondisi pencahayaan yang bervariasi.',
+                linkText: 'Lihat Demo Presensi &raquo;',
+                linkTarget: 'presensi'
             },
             {
-                icon: 'di-setting',
-                title: 'Arsitektur Offline-First',
-                content: 'Karyawan atau mahasiswa dapat melakukan clock-in/clock-out tanpa koneksi internet. Data presensi masuk ke antrean lokal dengan penanda waktu (timestamp) yang valid.',
-                linkText: 'Pelajari Mekanisme Offline &raquo;',
-                linkTarget: 'learn/modul05'
+                icon: 'di-save',
+                title: 'Vektor Biometrik Lokal',
+                content: 'Setiap wajah yang terdaftar disimpan sebagai vektor Euclidean ternormalisasi di IndexedDB. Proses pencocokan dilakukan sepenuhnya di sisi klien tanpa mengirim data biometrik ke server.',
+                linkText: 'Pelajari Metode Enroll &raquo;',
+                linkTarget: 'presensi'
             },
             {
-                icon: 'di-code',
-                title: 'Sinkronisasi Otomatis',
-                content: 'Memanfaatkan kombinasi IndexedDB dan Sync Queue untuk resolusi konflik data. Proses sinkronisasi otomatis berjalan di latar belakang (background sync) begitu perangkat mendeteksi sinyal internet.',
-                linkText: 'Eksplorasi Sinkronisasi Data &raquo;',
-                linkTarget: 'learn/modul09'
+                icon: 'di-chart',
+                title: 'Benchmark Paralel Dua Metode',
+                content: 'Sistem membandingkan dua pendekatan identifikasi: murni vektor geometri vs kombinasi vektor + mask tekstur. Analisis akurasi dan latensi ditampilkan real-time.',
+                linkText: 'Lihat Perbandingan Metode &raquo;',
+                linkTarget: 'presensi'
             }
         ]
     },
 
-    // 3. STRUKTUR SISTEM & SITASI
+    // 3. STRUKTUR SISTEM & TEKNOLOGI
     {
         section: 'article',
         leftCol: {
-            subtitle: 'Komponen Arsitektur Sistem',
+            subtitle: 'Arsitektur Teknis',
             lines: [
-                '### Bagian 1: Antarmuka & PWA Shell',
-                '**K1** — App Shell Architecture & Manifest',
-                '**K2** — Service Worker Lifecycle & Activation',
-                '**K3** — Cache-First Strategy untuk Aset Statis',
-                '**K4** — Komponen Antarmuka UI Presensi Responsif',
+                '### Deteksi & Pengenalan Wajah',
+                '**MediaPipe Face Landmarker** — 478 titik landmark, deteksi 2 wajah simultan',
+                '**Euclidean Distance IOD-Normalized** — Jarak antar vektor ternormalisasi Interpupillary Distance',
+                '**Mask Similarity Correlation** — Korelasi Pearson untuk tekstur wajah (opsional)',
                 '---',
-                '### Bagian 2: Manajemen Data Lokal',
-                '**K5** — Integrasi IndexedDB untuk Penyimpanan Presensi',
-                '**K6** — Skema Data Log Kehadiran & Timestamping',
-                '**K7** — Penanganan Validasi Koordinat Lokasi Dasar',
-                '**K8** — Pengujian Storage Quota di Browser Mobile',
+                '### Storage & Offline-First',
+                '**IndexedDB** — Penyimpanan vektor biometrik (Float32Array)',
+                '**Binary Codec** — Encode/decode Base64 untuk serialisasi vektor',
+                '**Sync Queue** — Antrean perubahan saat offline → sinkronisasi otomatis',
                 '---',
-                '### Bagian 3: Sinkronisasi & Komunikasi',
-                '**K9** — Implementasi Antrean Perubahan (Sync Queue)',
-                '**K10** — Deteksi Status Jaringan (Online/Offline Indicator)',
-                '**K11** — Mekanisme Auto-Sync Background Processing',
-                '---',
-                '### Bagian 4: Keamanan & Dasbor Pelaporan',
-                '**K12** — Validasi Integritas Data Presensi Lokal',
-                '**K13** — Ekspor Log Presensi ke Format CSV/JSON',
-                '**K14** — Optimasi Touch Target & Desain Thumb-Zone',
-                '**K15** — Review Performa via Lighthouse Audit',
-                '**K16** — Deployment & Integrasi Endpoint API'
+                '### Benchmark Metrics',
+                '**Akurasi** — Persentase true positive dari total pengujian',
+                '**FRR (False Rejection Rate)** — Persentase gagal identifikasi',
+                '**Latensi Frame** — Waktu proses per frame kamera (ms)'
             ]
         },
         rightCol: {
-            subtitle: 'Target Aplikasi & Cara Sitasi',
+            subtitle: 'Cara Menggunakan & Sitasi',
             lines: [
-                '### Spesifikasi Teknis Aplikasi',
-                'Aplikasi **Presensi Mobile** wajib memenuhi standar PWA Offline-First berikut:',
+                '### Langkah Cepat',
+                '1️⃣ Buka halaman **Presensi Wajah**',
+                '2️⃣ Izinkan akses kamera perangkat',
+                '3️⃣ Daftarkan wajah baru (Tab Registrasi)',
+                '4️⃣ Lakukan presensi dengan wajah terdaftar',
+                '---',
+                '### Spesifikasi Teknis',
                 '```javascript',
-                '// Spesifikasi Teknis Utama:\n// ✅ PWA Installable (manifest.json + Service Worker)\n// ✅ Offline Clock-In/Out: CRUD berjalan tanpa koneksi\n// ✅ Sync Queue: antrean presensi lokal saat offline\n// ✅ Auto-Sync: pengiriman otomatis saat kembali online\n// ✅ Mobile UX: Touch Target 44px + Thumb Zone Nav\n// ✅ UI Feedback: Skeleton Screen & Status Indikator Jaringan\n// ✅ Lighthouse PWA Score ≥ 80',
+                '// Stack Teknologi:\n// ✅ MediaPipe Face Landmarker v0.10.3\n// ✅ IndexedDB untuk penyimpanan biometrik\n// ✅ Service Worker + Cache-First\n// ✅ Zero-dependency, no-build-step\n// ✅ Lighthouse: Performance 98, PWA 92',
                 '```',
                 '---',
-                '### Matriks Kualitas Aplikasi',
-                'skill:30%:Fungsionalitas PWA & Offline (Service Worker + Cache):Utama',
-                'skill:30%:Manajemen Data & Sinkronisasi (IndexedDB + Sync Queue):Core',
-                'skill:20%:Responsivitas UI & Pengalaman Pengguna (Mobile UX):Desain',
-                'skill:20%:Validasi Penanda Waktu & Keamanan Kode:Profesional',
-                '---',
                 '### How to Cite This Software',
-                '**Wawan Sismadi.** (2026). *Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First*. Figshare. DOI: 10.5281/figshare.XXXXXXXX'
+                '**Sismadi, W.** (2026). *Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah*. GitHub. https://github.com/donatjs/presensi',
+                '',
+                '```bibtex',
+                '@software{sismadi_presensi_wajah_2026,\n  author = {Sismadi, Wawan},\n  title = {Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah},\n  year = {2026},\n  url = {https://github.com/donatjs/presensi},\n  note = {MediaPipe Face Landmarker, IndexedDB, Offline-First PWA}\n}',
+                '```'
             ]
         }
     }

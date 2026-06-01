@@ -1,33 +1,32 @@
-ff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+cff-version: 1.2.0
+message: "Jika menggunakan perangkat lunak ini dalam publikasi ilmiah, mohon sitasi dengan metadata berikut."
+title: "Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah"
+version: 1.0.0
+date-released: 2026-05-26
+doi: 10.5281/zenodo.xxxxxxx
+license: MIT
 type: software
-title: "Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First"
-abstract: >
-  Aplikasi presensi mandiri (absensi mobile) open-source berbasis Progressive Web App (PWA)
-  dengan arsitektur Offline-First. Sistem dirancang untuk menangani pencatatan kehadiran secara 
-  instan di area minim sinyal menggunakan enkapsulasi Service Worker, penyimpanan lokal IndexedDB,
-  serta mekanisme sinkronisasi latar belakang otomatis (Sync Queue). Dioptimalkan menggunakan
-  micro-framework DonatJS tanpa dependensi runtime eksternal.
 authors:
   - family-names: Sismadi
     given-names: Wawan
-    orcid: "https://orcid.org/0009-0007-2685-5663"
+    orcid: https://orcid.org/0009-0007-2685-5663
     affiliation: "Universitas IPWIJA / PT Sismadi Langit Solusi"
-version: "1.0.0"
-date-released: "2026-05-26"
-doi: "10.6084/m9.figshare.XXXXXXXX"
-license: MIT
 repository-code: "https://github.com/donatjs/presensi"
 url: "https://github.com/donatjs/presensi"
+abstract: >-
+  Aplikasi presensi mandiri (absensi mobile) berbasis Progressive Web App (PWA)
+  dengan arsitektur Offline-First yang dilengkapi teknologi pengenalan wajah
+  menggunakan MediaPipe Face Landmarker. Mendukung deteksi 478 titik landmark,
+  pencocokan vektor Euclidean ternormalisasi, penyimpanan biometrik di IndexedDB,
+  serta benchmark paralel dua metode identifikasi (vektor murni vs vektor + mask tekstur).
 keywords:
-  - presensi mobile
-  - absensi pwa
+  - presensi wajah
+  - face recognition
   - progressive web app
   - offline-first
-  - service worker
-  - sync queue
+  - mediapipe
   - indexeddb
-  - mobile ux
   - donatjs
-  - open source
+  - biometric
+  - pwa
   - indonesia

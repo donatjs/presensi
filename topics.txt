@@ -1,26 +1,29 @@
-Topic tags untuk sismadi/ocw-kb
+Topic tags untuk donatjs/presensi
 Paste satu per satu di: GitHub repo → Settings → Topics
 
 ─────────────────────────────────────────
-open-courseware
-ocw
-wireless-computing
-mobile-computing
-komputasi-bergerak
+face-recognition
+presensi-wajah
+mediapipe
+facial-landmark-detection
+biometric-authentication
 progressive-web-app
 offline-first
+pwa
 service-worker
-sync-queue
 indexeddb
+sync-queue
 mobile-ux
 donatjs
-educational-technology
-open-education
+zero-dependency
+no-build-step
+json-driven-ui
+open-source
 indonesia
-universitas-ipwija
 ─────────────────────────────────────────
 
 Catatan:
 - GitHub maksimal 20 topic tags per repo
 - Gunakan huruf kecil dan tanda hubung (kebab-case)
-- Semua 16 tag di atas sudah dalam format yang diterima GitHub
+- Semua 18 tag di atas sudah dalam format yang diterima GitHub
+- Prioritas: face-recognition, mediapipe, offline-first, pwa

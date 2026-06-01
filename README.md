@@ -1,89 +1,138 @@
-Berikut adalah perbaikan dari README yang terpotong:
+Berikut README.md yang sudah diperbaiki dengan format yang benar dan tidak terpotong:
 
-# Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First
+```markdown
+# Presensi Mobile — Aplikasi Absensi PWA Berbasis Deteksi Wajah
 
 ![PWA Offline-First](https://img.shields.io/badge/PWA-Offline--First-purple)
-![Sync Queue](https://img.shields.io/badge/Sync_Queue-IndexedDB-green)
+![Face Recognition](https://img.shields.io/badge/Face_Recognition-MediaPipe-blue)
+![IndexedDB](https://img.shields.io/badge/Storage-IndexedDB-green)
 ![Framework](https://img.shields.io/badge/Framework-DonatJS-orange)
 ![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)
-![DOI](https://img.shields.io/badge/DOI-10.5281%2Ffigshare.XXXXXXXX-blue)
 
-Aplikasi presensi mandiri (absensi mobile) open-source berbasis Progressive Web App (PWA) dengan arsitektur **Offline-First**. Dibangun menggunakan [DonatJS](https://donat.id) — sebuah *zero-dependency, no-build-step, JSON-driven micro-framework*. Aplikasi ini memungkinkan pengguna melakukan pencatatan kehadiran (clock-in/clock-out) kapan saja meskipun tanpa koneksi internet, menyimpan data secara aman di penyimpanan lokal, dan menyinkronkannya secara otomatis saat jaringan kembali tersedia.
-
----
-
-## Key Features
-
-- **Offline-First Architecture** — Pengguna tetap dapat melakukan presensi tanpa sinyal. Data disimpan langsung di browser perangkat menggunakan `IndexedDB`.
-- **Background Sync Queue** — Mengantrekan data presensi lokal saat offline dan otomatis mengirimkannya ke server backend via background processing begitu mendeteksi koneksi internet stabil.
-- **JSON-Driven UI Component** — Seluruh struktur halaman dan komponen didefinisikan secara deklaratif sebagai objek JavaScript biasa (`pages.home`). Tanpa *bundler*, tanpa CMS backend yang rumit.
-- **Zero-Dependency Runtime** — Berjalan langsung di peramban (browser) modern tanpa memerlukan Node.js, Webpack, Babel, atau pustaka eksternal lainnya.
-- **Lighthouse Optimized** — Memenuhi standar audit Progressive Web App tinggi dengan indikator jaringan, *skeleton screen*, dan optimasi navigasi zona jempol (*thumb-zone*).
-- **Integrated Certificate & Quiz Engine** — Menyediakan modul kuis terproteksi sandi dan modul verifikasi sertifikat internal menggunakan ID unik (`SLS-YYYY-NNN`).
+Aplikasi presensi mandiri (absensi mobile) open-source berbasis **Progressive Web App (PWA)** dengan arsitektur **Offline-First** yang dilengkapi teknologi **pengenalan wajah (facial recognition)** menggunakan MediaPipe Face Landmarker. Dibangun menggunakan [DonatJS](https://donat.id) — sebuah *zero-dependency, no-build-step, JSON-driven micro-framework*.
 
 ---
 
-## Prerequisites & Installation
+## ✨ Fitur Utama
 
-Hanya memerlukan browser modern yang mendukung standar ES6+.
-
-1. Clone repositori ini:
-   ```bash
-   git clone https://github.com/donatjs/presensi.git
-   cd presensi
-   ```
-
-2. Jalankan menggunakan server file statis apa pun (misal: VS Code Live Server, Python http.server, atau Nginx).
-
-3. Buka `index.html` di browser Anda. Tidak memerlukan langkah kompilasi atau build.
-
-> **Catatan:** Berkas `script.js` dan `svg.js` dimuat langsung dari DonatJS Core CDN (`https://donatjs.github.io/core/`). Diperlukan koneksi internet pada pemuatan pertama, atau unduh berkas tersebut untuk kebutuhan full-self-hosting.
+- **Face Recognition Real-time** — Deteksi 478 titik landmark wajah, pencocokan vektor Euclidean ternormalisasi
+- **Dual Method Benchmark** — Perbandingan simultan: metode vektor murni vs kombinasi vektor + mask tekstur
+- **Offline-First Architecture** — Seluruh proses deteksi & pencocokan wajah berjalan di sisi klien tanpa koneksi internet
+- **Biometric Vector Storage** — Penyimpanan vektor biometrik di IndexedDB dengan serialisasi Base64
+- **Sync Queue** — Antrean data presensi lokal, sinkronisasi otomatis saat online
+- **Live Benchmark Panel** — Monitor akurasi, FRR, dan latensi kedua metode secara real-time
+- **Export Log** — Ekspor riwayat presensi dan benchmark match ke format CSV/JSON
+- **Mobile UX Optimized** — Touch Target 44px, Thumb Zone navigation, Skeleton Screen
 
 ---
 
-## Usage & Configuration
+## 🛠️ Teknologi
 
-### Komponen Arsitektur Utama
+| Komponen | Teknologi |
+|----------|-----------|
+| Face Detection | MediaPipe Face Landmarker v0.10.3 (478 titik) |
+| Similarity Metric | Euclidean Distance (IOD-normalized) |
+| Mask Similarity | Pearson Correlation Coefficient |
+| Storage | IndexedDB + Base64 Binary Codec |
+| PWA Core | Service Worker (Cache-First) |
+| Framework | DonatJS (JSON-driven CSR) |
+| Audit Score | Lighthouse Performance: 98, PWA: 92 |
 
-| Bagian | Cakupan Teknis | Deskripsi |
-|--------|----------------|-----------|
-| 1: PWA Shell | Service Worker, Cache, Manifest | Menangani performa load instan, instalasi aplikasi ke homescreen, dan caching aset inti. |
-| 2: Storage Lokal | IndexedDB, Log Presensi | Mengelola penyimpanan log kehadiran secara offline lengkap dengan koordinat dan timestamp aman. |
-| 3: Sinkronisasi | Sync Queue, Network Detector | Mengelola antrean data presensi yang tertunda dan melakukan push otomatis saat status beralih ke online. |
-| 4: Mobile UX | Touch Target, Layout Responsif | Desain antarmuka presensi yang ramah satu tangan, indikator status online/offline, dan ekspor data. |
+---
 
-### Contoh Struktur Data Presensi (`pages.home`)
+## 📦 Instalasi
 
-```javascript
-pages.home = [
-    {
-        section: 'hero',
-        title: 'Sistem Presensi Mobile Offline-First',
-        description: 'Aplikasi Absensi Mandiri berbasis PWA — Cepat, Ringan, dan Andal Tanpa Sinyal.'
-    }
-];
+```bash
+git clone https://github.com/donatjs/presensi.git
+cd presensi
+# Gunakan server statis (Live Server, Python http.server, dll)
+# Buka index.html di browser modern
+```
+
+> **Catatan:** Koneksi internet diperlukan saat pertama kali untuk memuat MediaPipe CDN. Setelah itu, aplikasi dapat berjalan offline sepenuhnya.
+
+---
+
+## 🚀 Penggunaan
+
+1. Buka halaman **Presensi Wajah** melalui navigasi menu
+2. Izinkan akses kamera browser
+
+### Registrasi Wajah Baru (Tab Registrasi)
+
+- Masukkan nama subjek
+- Arahkan wajah ke dalam oval panduan
+- Sistem akan mengambil 5 sampel landmark
+
+### Presensi (Tab Presensi Mandiri)
+
+- Arahkan wajah yang sudah terdaftar
+- Sistem mencocokkan secara real-time
+- Notifikasi sukses tampil dengan data jarak Euclidean
+
+---
+
+## 📊 Benchmark Panel
+
+Sistem menjalankan dua metode identifikasi secara paralel setiap frame:
+
+| Metode | Deskripsi | Threshold |
+|--------|-----------|-----------|
+| Vektor Murni | Euclidean distance dari 100 titik landmark | 0.016 |
+| Vektor + Mask | Kombinasi jarak vektor + korelasi tekstur wajah | 0.022 / 0.72 |
+
+Panel menampilkan:
+
+- Akurasi kumulatif & FRR per metode
+- Latensi frame & rata-rata
+- Perbandingan unggul akurasi dan kecepatan
+- Analisis pengaruh kondisi cahaya
+
+---
+
+## 📁 Struktur Proyek
+
+```
+presensi/
+├── index.html          # Entry point PWA
+├── script.js           # DonatJS core engine + routing
+├── style.css           # Styling global & komponen
+├── benchmark.js        # Biometric benchmark engine v1.6.0
+├── presensi-patch.js   # Face recognition module v1.2.0
+├── pages/
+│   ├── home.js         # Halaman utama
+│   └── presensi.js     # Konfigurasi halaman presensi
+└── assets/             # Ikon & aset statis
 ```
 
 ---
 
-## How to Cite
+## 📝 Cara Sitasi
 
 ```bibtex
-@software{sismadi_presensi_mobile_2026,
+@software{sismadi_presensi_wajah_2026,
   author       = {Sismadi, Wawan},
-  title        = {{Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First}},
+  title        = {Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah},
   year         = {2026},
-  publisher    = {Figshare},
-  doi          = {10.5281/figshare.XXXXXXXX},
   url          = {https://github.com/donatjs/presensi},
-  note         = {Sistem presensi mobile mandiri dengan arsitektur Offline-First.
-                  Mendukung Service Worker caching, IndexedDB log, dan Sync Queue.
-                  Dibangun di atas micro-framework DonatJS tanpa dependensi pihak ketiga.}
+  note         = {MediaPipe Face Landmarker, IndexedDB, Offline-First PWA}
 }
 ```
 
+**Sismadi, W.** (2026). *Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah*. GitHub. https://github.com/donatjs/presensi
+
 ---
 
-## License
+## 📜 Lisensi
 
-Distributed under the MIT License. See `LICENSE` file for more information.
+MIT License — © 2026 Wawan Sismadi
+
+---
+
+## 🔗 Tautan Terkait
+
+- [DonatJS Framework](https://donat.id)
+- [MediaPipe Face Landmarker](https://developers.google.com/mediapipe/solutions/vision/face_landmarker)
+- [Laporan Benchmark](benchmark_matchlog_*.csv)
+```
+ 

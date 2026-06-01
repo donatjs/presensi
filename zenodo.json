@@ -1,6 +1,6 @@
 {
-  "title": "Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First",
-  "description": "Aplikasi sistem presensi mandiri (absensi mobile) open-source berbasis Progressive Web App (PWA) dengan arsitektur Offline-First yang dikembangkan di atas DonatJS. DonatJS merupakan zero-dependency, no-build-step, JSON-driven micro-framework yang mentransformasikan objek deklaratif JavaScript menjadi elemen antarmuka web responsif secara client-side rendering (CSR) langsung di peramban tanpa memerlukan kompilasi atau dependensi toolchain eksternal.\n\nAplikasi ini didesain khusus untuk keandalan pencatatan kehadiran pada kondisi minim atau tanpa sinyal internet internet. Log presensi (waktu clock-in/out, data pengguna, koordinat lokasi) disimpan sementara secara aman di sisi klien menggunakan IndexedDB, diatur melalui struktur antrean perubahan (Sync Queue), lalu dikirim otomatis ke server melalui background synchronization begitu perangkat terhubung kembali ke jaringan internet.\n\nKomponen aplikasi mencakup manajemen Service Worker (strategi Cache-First), manifest.json untuk fungsionalitas installable standalone app, sistem navigasi ramah satu genggaman (Thumb Zone & Touch Target 44px), visualisasi transisi jaringan, modul kuis internal berbasis sandi terenkripsi base64, serta mesin verifikasi sertifikat dengan pencarian ID (format SLS-YYYY-NNN). Silsilah evolusi framework: Ktupad (2019, PHP/MVC) → BayamJS (2023, JS/MVC) → DonatJS (2024–2026, JSON-driven CSR).\n\nSkor Audit Lighthouse — Performa: 98, Aksesibilitas: 92, Best Practices: 100, SEO: 90. Terdaftar Hak Cipta HKI: EC00202414144 dan nomor permohonan paten DJKI: S00202503129 (Indonesia).",
+  "title": "Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah & Offline-First",
+  "description": "Aplikasi sistem presensi mandiri (absensi mobile) open-source berbasis Progressive Web App (PWA) dengan arsitektur Offline-First yang dilengkapi teknologi pengenalan wajah (facial recognition) real-time menggunakan MediaPipe Face Landmarker.\n\nFitur Inti:\n- Deteksi 478 titik landmark wajah dengan MediaPipe Face Landmarker v0.10.3\n- Pencocokan vektor Euclidean ternormalisasi Interpupillary Distance (IOD)\n- Dual Method Benchmark: vektor murni vs vektor + mask tekstur (Pearson correlation)\n- Penyimpanan vektor biometrik di IndexedDB dengan serialisasi Base64\n- Live benchmark panel (akurasi, FRR, latensi) untuk kedua metode\n- Ekspor log benchmark ke CSV/JSON\n\nArsitektur Offline-First:\n- Service Worker dengan strategi Cache-First\n- Sync Queue untuk antrean presensi offline\n- Sinkronisasi otomatis saat koneksi pulih\n\nDibangun menggunakan DonatJS — zero-dependency, no-build-step, JSON-driven micro-framework yang mentransformasikan objek deklaratif JavaScript menjadi antarmuka web responsif secara client-side rendering (CSR).\n\nSkor Audit Lighthouse — Performa: 98, Aksesibilitas: 92, Best Practices: 100, SEO: 90.\n\nTerdaftar Hak Cipta HKI: EC00202414144 dan permohonan paten DJKI: S00202503129 (Indonesia).",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
@@ -20,12 +20,17 @@
   "categories": [
     "Computer Science",
     "Software Engineering",
-    "Mobile Computing"
+    "Mobile Computing",
+    "Artificial Intelligence"
   ],
   "tags": [
-    "presensi mobile",
-    "absensi pwa",
+    "face recognition",
+    "presensi wajah",
+    "mediapipe",
+    "facial landmark detection",
+    "biometric authentication",
     "progressive web app",
+    "pwa",
     "offline-first",
     "service worker",
     "sync queue",
@@ -35,26 +40,25 @@
     "zero dependency",
     "no-build step",
     "micro-framework",
-    "DonatJS",
+    "donatjs",
     "open source",
-    "Indonesia"
+    "indonesia"
   ],
   "references": [
     "Sismadi, W. (2024). Pengembangan Aplikasi Web Modern dengan DonatJS. P4I. ISBN 978-623-848-897-1.",
-    "Sismadi, W. (2024). Optimasi Penggunaan SVG dalam Web Development. P4I. ISBN 978-623-876-765-6.",
-    "Sismadi, W. (2026). Arsitektur Piawai Mengajar (Manuscript, 9 chapters). Universitas Ahmad Dahlan."
+    "Google Developers. (2024). MediaPipe Face Landmarker. https://developers.google.com/mediapipe/solutions/vision/face_landmarker"
   ],
   "related_materials": [
-    {
-      "title": "DonatJS LMS — Live Deployment",
-      "url": "https://donat.id",
-      "relation": "IsDocumentedBy",
-      "identifier_type": "URL"
-    },
     {
       "title": "Source Repository — GitHub",
       "url": "https://github.com/donatjs/presensi",
       "relation": "IsSupplementTo",
+      "identifier_type": "URL"
+    },
+    {
+      "title": "DonatJS Framework",
+      "url": "https://donat.id",
+      "relation": "IsDocumentedBy",
       "identifier_type": "URL"
     },
     {
@@ -73,6 +77,8 @@
   "custom_fields": {
     "Software programming language": "JavaScript (ES6+)",
     "Development Status": "Active",
-    "Operating System": "Browser (Any OS)"
+    "Operating System": "Browser (Any OS)",
+    "Computer vision library": "MediaPipe Face Landmarker",
+    "Storage": "IndexedDB + Base64 Binary Codec"
   }
 }

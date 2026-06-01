@@ -1,8 +1,8 @@
 {
-  "title": "Presensi Mobile: Aplikasi Absensi PWA Berbasis Offline-First",
+  "title": "Presensi Mobile: Aplikasi Absensi PWA Berbasis Deteksi Wajah & Offline-First",
   "type": "software",
   "publication_date": "2026-05-26",
-  "abstract": "Sistem presensi mandiri (absensi mobile) open-source yang menerapkan teknologi Progressive Web App (PWA) dengan arsitektur inti Offline-First. Aplikasi ini dikembangkan untuk memfasilitasi pencatatan kehadiran instan yang andal di lingkungan dengan infrastruktur jaringan buruk atau blank spot internet. Menggunakan integrasi Service Worker dengan Cache-First strategy untuk menjamin aplikasi termuat cepat (<1 detik), penyimpanan log kehadiran terenkapsulasi di IndexedDB, serta mekanisme antrean perubahan (Sync Queue) yang melakukan sinkronisasi otomatis ke pangkalan data server saat mendeteksi pemulihan koneksi internet. Antarmuka dioptimalkan bagi kenyamanan genggaman satu tangan (Thumb Zone & Touch Target 44px) dilengkapi transisi Skeleton Screen. Dibangun menggunakan DonatJS, sebuah zero-dependency, no-build-step, JSON-driven micro-framework. Hasil audit metrik Lighthouse menunjukkan skor Performa: 98, Aksesibilitas: 92, Best Practices: 100, dan SEO: 90. Terdaftar Hak Cipta HKI: EC00202414144 serta nomor pendaftaran Paten: S00202503129 di DJKI Indonesia.",
+  "abstract": "Sistem presensi mandiri (absensi mobile) open-source yang menerapkan teknologi Progressive Web App (PWA) dengan arsitektur Offline-First dan modul pengenalan wajah real-time menggunakan MediaPipe Face Landmarker.\n\nAplikasi ini mendeteksi 478 titik landmark wajah melalui kamera perangkat, mencocokkan dengan vektor biometrik tersimpan menggunakan Euclidean distance yang dinormalisasi terhadap Interpupillary Distance (IOD). Sistem menjalankan dua metode identifikasi secara paralel: (1) vektor geometri murni, dan (2) kombinasi vektor geometri + mask tekstur (Pearson correlation).\n\nSeluruh proses deteksi dan pencocokan berjalan di sisi klien tanpa memerlukan koneksi internet. Data biometrik disimpan di IndexedDB dengan serialisasi Base64. Fitur Sync Queue memungkinkan pencatatan presensi offline yang otomatis tersinkronisasi saat koneksi pulih.\n\nAntarmuka dioptimalkan untuk genggaman satu tangan (Thumb Zone & Touch Target 44px). Dibangun menggunakan DonatJS, zero-dependency, no-build-step, JSON-driven micro-framework.\n\nHasil audit Lighthouse: Performa 98, Aksesibilitas 92, Best Practices 100, SEO 90. Terdaftar Hak Cipta HKI: EC00202414144 dan Paten: S00202503129 (DJKI Indonesia).",
   "authors": [
     {
       "first_name": "Wawan",
@@ -20,23 +20,25 @@
   "project_url": "https://github.com/donatjs/presensi",
   "version": "1.0.0",
   "keywords": [
-    "presensi mobile",
-    "absensi mobile",
+    "face recognition",
+    "presensi wajah",
+    "mediapipe",
+    "facial landmark detection",
+    "biometric authentication",
+    "offline-first pwa",
     "progressive web app",
-    "PWA",
-    "offline-first",
-    "service worker",
+    "absensi mobile",
+    "indexeddb",
     "sync queue",
-    "IndexedDB",
-    "mobile UX",
-    "DonatJS",
-    "open source",
-    "Indonesia"
+    "donatjs",
+    "indonesia"
   ],
   "research_areas": [
     "Computer Science",
     "Mobile Computing",
-    "Software Engineering"
+    "Software Engineering",
+    "Artificial Intelligence",
+    "Biometrics"
   ],
   "references": [
     {
@@ -44,35 +46,27 @@
       "type": "book"
     },
     {
-      "citation": "Sismadi, W. (2024). Optimasi Penggunaan SVG dalam Web Development. P4I. ISBN 978-623-876-765-6.",
-      "type": "book"
-    },
-    {
-      "citation": "Sismadi, W. (2024). Analisis Mendalam: Batasan Penggunaan AI dalam Pendidikan. P4I. ISBN 978-634-726-057-4.",
-      "type": "book"
-    },
-    {
-      "citation": "Sismadi, W. (2026). Arsitektur Piawai Mengajar (Manuscript, 9 chapters). Universitas Ahmad Dahlan.",
-      "type": "manuscript"
+      "citation": "Google Developers. (2024). MediaPipe Face Landmarker. https://developers.google.com/mediapipe/solutions/vision/face_landmarker",
+      "type": "documentation"
     }
   ],
   "related_links": [
-    {
-      "label": "Live Deployment — DonatJS LMS",
-      "url": "https://donat.id"
-    },
     {
       "label": "Source Repository — GitHub",
       "url": "https://github.com/donatjs/presensi"
     },
     {
-      "label": "DonatJS Core CDN",
-      "url": "https://donatjs.github.io/core"
+      "label": "Live Demo — DonatJS",
+      "url": "https://donat.id"
     },
     {
-      "label": "HKI Copyright — EC00202414144 (DJKI Indonesia)",
+      "label": "MediaPipe Face Landmarker",
+      "url": "https://developers.google.com/mediapipe/solutions/vision/face_landmarker"
+    },
+    {
+      "label": "HKI Copyright — EC00202414144",
       "url": "https://pdki-indonesia.dgip.go.id"
     }
   ],
-  "notes": "ResearchGate does not have a native JSON deposit API. Use this file as a reference template when filling the manual upload form at https://www.researchgate.net/publication/new. Paste the abstract, keywords, and references directly. Upload the source ZIP and set the research type to 'Software'."
+  "notes": "ResearchGate does not have a native JSON deposit API. Use this file as a reference template when filling the manual upload form. Paste the abstract, keywords, and references directly. Upload the source ZIP and set the research type to 'Software'."
 }
