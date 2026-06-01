@@ -11,6 +11,16 @@ authors:
     given-names: Wawan
     orcid: https://orcid.org/0009-0007-2685-5663
     affiliation: "Universitas IPWIJA / PT Sismadi Langit Solusi"
+    email: wawan@sismadi.com
+  - family-names: Manan
+    given-names: Abdul
+    name-suffix: S.Kom., M.Kom
+    affiliation: "Universitas IPWIJA"
+    email: abdmanan080@gmail.com
+  - family-names: Hartini
+    given-names: Estuti Fitri
+    affiliation: "Universitas IPWIJA"
+    email: estufitrihartini@gmail.com
 repository-code: "https://github.com/donatjs/presensi"
 url: "https://github.com/donatjs/presensi"
 abstract: >-
