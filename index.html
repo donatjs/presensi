@@ -6,7 +6,7 @@
     <meta name="keywords" content="pemrograman web, javascript, html5, css3, localStorage, fetch API, SPA, CRUD, open courseware, DonatJS">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta http-equiv="Cache-Control" content="max-age=1209600">
-
+    <link rel="manifest" href="manifest.json">
     <title>DonatJS — Presensi Wajah </title>
     <link rel="canonical" href="https://donat.id/">
 
@@ -104,6 +104,18 @@ function renderMenu() {
         // web.init(pages);
     });
 </script>
+<script>
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('SW Registered!', reg))
+            .catch(err => console.log('SW Failed!', err));
+    });
+}
+</script>
+
+
 
 </body>
 </html>
